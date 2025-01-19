@@ -7,6 +7,22 @@
   min-height: 100vh;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button {
+  padding: 8px;
+  border-radius: 4px;
+  background: var(--primary);
+  color: var(--foreground);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -52,6 +68,8 @@
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  box-shadow: var(--meta-elevation-2, 0px 2px 6px 0px rgba(33, 34, 38, 0.15));
+
 }
 
 .card span {
