@@ -1,9 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Providers } from './providers'
+import { MSWProvider } from './msw-provider'
 
 const inter = Inter({ subsets: ['latin'] })
+
+if (process.env.NEXT_RUNTIME === 'nodejs') {
+  const { server } = require('@/mocks/server')
+  server.listen()
+}
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
+        <MSWProvider>
           {children}
-        </Providers>
+        </MSWProvider>
       </body>
     </html>
   )
